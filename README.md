@@ -17,6 +17,12 @@ The objective of this project is to familiarize myself with the build tools and 
 | PHPUnit | https://phpunit.de | PHP testing framework |
 | Laravel Dusk | https://laravel.com/docs/dusk | End-to-end testing framework |
 
+To ensure best practices, the following parameters are to be followed:
+
+1. Code is written using the [Test-Driven Development](#) methodology.
+2. Inject [underlying classes](https://laravel.com/docs/facades#facade-class-reference) instead of Laravel Facades.
+3. Fully utilize [Laravel Mix](https://laravel.com/docs/mix) (i.e. no stray assets in `/public`)
+
 ## Site User Roles
 
 - User
@@ -36,4 +42,4 @@ The objective of this project is to familiarize myself with the build tools and 
 
 ## License
 
-Released under the MIT License. Read the license [LICENSE](here).
+Released under the MIT License. Read the license [here](LICENSE).
