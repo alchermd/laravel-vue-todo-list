@@ -23,6 +23,18 @@ To ensure best practices, the following parameters are to be followed:
 2. Inject [underlying classes](https://laravel.com/docs/facades#facade-class-reference) instead of Laravel Facades.
 3. Fully utilize [Laravel Mix](https://laravel.com/docs/mix) (i.e. no stray assets in `/public`)
 
+## Installation
+
+This project contains a [Vagrantfile](Vagrantfile) which allows us to utilize Vagrant and [Laravel Homestead](https://laravel.com/docs/homestead). So please follow the installation process from that link. Once finished, follow these instructions:
+
+1. Run `composer install`
+2. Run `vendor/bin/homestead make` to install Homestead for this project
+3. Customize `Homestead.yaml` to your preference
+4. Run `vagrant up` to start the Homestead box
+5. Run `vagrant ssh` to connect to the Homestead box
+6. Go to the project directory with `cd code`
+7. Once inside the project directory, you can now run [Artisan Commands](https://laravel.com/docs/artisan) to interact with Laravel.
+
 ## Site User Roles
 
 - User
