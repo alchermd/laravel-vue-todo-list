@@ -1,18 +1,13 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Models\Task;
+use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/tasks/{task}', function (Task $task) {
+    return [
+        'id' => $task->id,
+        'title' => $task->title,
+        'description' => $task->description,
+        'is_finished' => $task->is_finished,
+    ];
 });
