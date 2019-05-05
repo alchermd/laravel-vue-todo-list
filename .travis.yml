@@ -1,0 +1,17 @@
+language: php
+
+php:
+  - '7.3.4'
+
+services:
+  - postgresql
+
+before_script:
+  - psql -c 'CREATE DATABASE homestead_test;' -U postgres
+  - cp .env.example .env
+  - composer self-update
+  - composer install --no-interaction
+  - php artisan key:generate
+
+script:
+  - vendor/bin/phpunit
