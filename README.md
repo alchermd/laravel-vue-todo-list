@@ -1,4 +1,4 @@
-# Laravel Vue Todo-List
+# Laravel Vue Todo-List [![Build Status](https://travis-ci.com/alchermd/laravel-vue-todo-list.svg?branch=master)](https://travis-ci.com/alchermd/laravel-vue-todo-list)
 
 ## Introduction
 
