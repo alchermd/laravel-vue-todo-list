@@ -15,7 +15,7 @@ class ViewTasksTest extends TestCase
     {
         $task = factory(Task::class)->create();
 
-        $response = $this->json('get', '/api/tasks/'.$task->id);
+        $response = $this->json('get', route('tasks.show', ['task' => $task->id]));
 
         $response->assertJson([
             'title' => $task->title,
