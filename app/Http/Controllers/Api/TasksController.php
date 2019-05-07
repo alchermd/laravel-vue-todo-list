@@ -9,7 +9,12 @@ class TasksController
 {
     public function index()
     {
-        //
+        return Task::simplePaginate(10, [
+            'id',
+            'title',
+            'description',
+            'is_finished',
+        ]);
     }
 
     public function store(Request $request)
