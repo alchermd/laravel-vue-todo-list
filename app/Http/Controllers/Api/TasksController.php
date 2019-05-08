@@ -19,7 +19,18 @@ class TasksController
 
     public function store(Request $request)
     {
-        //
+        $task = Task::create([
+            'title' => $request->post('title'),
+            'description' => $request->post('description'),
+            'is_finished' => $request->post('is_finished'),
+        ]);
+
+        return response()->json([
+            'id' => $task->id,
+            'title' => $task->title,
+            'description' => $task->description,
+            'is_finished' => $task->is_finished,
+        ], 201);
     }
 
     public function show(Task $task)
