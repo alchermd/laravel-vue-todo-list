@@ -32,7 +32,6 @@ class AddTasksTest extends TestCase
     {
         $task = factory(Task::class)->make();
         $taskAttributes = [
-            'title' => null,
             'description' => $task->description,
             'is_finished' => $task->is_finished,
         ];
@@ -49,7 +48,6 @@ class AddTasksTest extends TestCase
         $task = factory(Task::class)->make();
         $taskAttributes = [
             'title' => $task->title,
-            'description' => null,
             'is_finished' => $task->is_finished,
         ];
 
