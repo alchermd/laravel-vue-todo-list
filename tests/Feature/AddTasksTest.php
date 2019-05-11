@@ -26,4 +26,20 @@ class AddTasksTest extends TestCase
         $response->assertJson($taskAttributes);
         $this->assertDatabaseHas('tasks', $taskAttributes);
     }
+
+    /** @test */
+    public function the_title_field_is_required()
+    {
+        $task = factory(Task::class)->make();
+        $taskAttributes = [
+            'title' => null,
+            'description' => $task->description,
+            'is_finished' => $task->is_finished,
+        ];
+
+        $response = $this->json('post', route('tasks.store'), $taskAttributes);
+
+        $response->assertStatus(422);
+        $response->assertJsonValidationErrors(['title']);
+    }
 }

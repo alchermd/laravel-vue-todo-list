@@ -19,6 +19,10 @@ class TasksController
 
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+        ]);
+
         $task = Task::create([
             'title' => $request->post('title'),
             'description' => $request->post('description'),
