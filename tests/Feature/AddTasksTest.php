@@ -58,4 +58,19 @@ class AddTasksTest extends TestCase
         $response->assertStatus(422);
         $response->assertJsonValidationErrors(['description']);
     }
+
+    /** @test */
+    public function the_is_finished_field_is_not_required_and_defaults_to_false()
+    {
+        $task = factory(Task::class)->make();
+        $taskAttributes = [
+            'title' => $task->title,
+            'description' => $task->description,
+        ];
+
+        $response = $this->json('post', route('tasks.store'), $taskAttributes);
+
+        $response->assertStatus(201);
+        $this->assertFalse($response->json('is_finished'));
+    }
 }

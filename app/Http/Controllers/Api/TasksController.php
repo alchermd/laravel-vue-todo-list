@@ -27,7 +27,7 @@ class TasksController
         $task = Task::create([
             'title' => $request->post('title'),
             'description' => $request->post('description'),
-            'is_finished' => $request->post('is_finished'),
+            'is_finished' => $request->post('is_finished', false),
         ]);
 
         return response()->json([
