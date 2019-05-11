@@ -42,4 +42,20 @@ class AddTasksTest extends TestCase
         $response->assertStatus(422);
         $response->assertJsonValidationErrors(['title']);
     }
+
+    /** @test */
+    public function the_description_field_is_required()
+    {
+        $task = factory(Task::class)->make();
+        $taskAttributes = [
+            'title' => $task->title,
+            'description' => null,
+            'is_finished' => $task->is_finished,
+        ];
+
+        $response = $this->json('post', route('tasks.store'), $taskAttributes);
+
+        $response->assertStatus(422);
+        $response->assertJsonValidationErrors(['description']);
+    }
 }

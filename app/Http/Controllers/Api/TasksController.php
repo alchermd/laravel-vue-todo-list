@@ -21,6 +21,7 @@ class TasksController
     {
         $request->validate([
             'title' => 'required',
+            'description' => 'required',
         ]);
 
         $task = Task::create([
