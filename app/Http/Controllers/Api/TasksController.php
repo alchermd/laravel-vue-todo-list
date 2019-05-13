@@ -64,8 +64,10 @@ class TasksController
         ];
     }
 
-    public function destroy($id)
+    public function destroy(Task $task)
     {
-        //
+        $task->delete();
+
+        return response()->json([], 204);
     }
 }
