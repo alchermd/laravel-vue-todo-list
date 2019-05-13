@@ -48,9 +48,20 @@ class TasksController
         ];
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Task $task)
     {
-        //
+        $task->update([
+            'title' => $request->post('title', $task->title),
+            'description' => $request->post('description', $task->description),
+            'is_finished' => (boolean) $request->post('is_finished', $task->is_finished),
+        ]);
+
+        return [
+            'id' => $task->id,
+            'title' => $task->title,
+            'description' => $task->description,
+            'is_finished' => $task->is_finished,
+        ];
     }
 
     public function destroy($id)
